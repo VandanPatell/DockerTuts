@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 RUN rm -rf *
 
 # Clone the remote Git repository
-RUN git clone <repository_url> .
+RUN git clone -b Node-JS https://github.com/VandanPatell/DockerTuts.git
 
 # Copy package.json separately to leverage Docker cache if unchanged
 COPY package*.json ./
