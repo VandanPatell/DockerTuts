@@ -11,7 +11,7 @@ RUN rm -rf *
 RUN git clone -b Node-JS https://github.com/VandanPatell/DockerTuts.git
 
 # Copy package.json separately to leverage Docker cache if unchanged
-COPY package*.json ./
+COPY package*.json app.js ./
 
 RUN npm install
 EXPOSE 3000
