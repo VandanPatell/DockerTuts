@@ -28,5 +28,5 @@ jobs:
           image: 
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/DockerTest:latest
+          tags: vandanpatell/docker_test:lates
 
