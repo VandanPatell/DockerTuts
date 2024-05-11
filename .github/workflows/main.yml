@@ -49,13 +49,13 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: direct.labs.play-with-docker.com
-        username: ip172-18-0-21-covf7v291nsg009bc6hg
+        username: ip172-18-0-29-covmlbol2o90008hp7sg
         password: TEST
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         # key_path: /root/ssh.pub
 
     - name: Pull latest Docker image
-      run: ssh root@node1 'docker pull vandanpatell/docker_test:latest'
+      run: ssh ip172-18-0-29-covmlbol2o90008hp7sg@direct.labs.play-with-docker.com 'docker pull vandanpatell/docker_test:latest'
 
     - name: Restart Docker container
-      run: root@node1 'docker restart nodecontainer'
+      run: ssh ip172-18-0-29-covmlbol2o90008hp7sg@direct.labs.play-with-docker.com 'docker restart nodecontainer'
