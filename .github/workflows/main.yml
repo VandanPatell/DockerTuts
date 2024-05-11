@@ -45,6 +45,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Add Host Key to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H direct.labs.play-with-docker.com >> ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+
     - name: SSH into server
       uses: appleboy/ssh-action@master
       with:
