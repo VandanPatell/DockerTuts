@@ -46,6 +46,7 @@ jobs:
         username: ip172-18-0-21-covf7v291nsg009bc6hg
         # password: TEST
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key_path: /root/ssh.pub
 
     - name: Pull latest Docker image
       run: ssh ip172-18-0-21-covf7v291nsg009bc6hg@direct.labs.play-with-docker.com 'docker pull vandanpatell/docker_test:latest'
