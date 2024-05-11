@@ -36,6 +36,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Debug SSH Key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
+      
     - name: SSH into server
       uses: appleboy/ssh-action@master
       with:
