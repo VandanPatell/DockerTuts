@@ -39,8 +39,8 @@ jobs:
     - name: SSH into server
       uses: appleboy/ssh-action@master
       with:
-        host: ip172-18-0-21-covf7v291nsg009bc6hg
-        username: direct.labs.play-with-docker.com
+        host: direct.labs.play-with-docker.com
+        username: ip172-18-0-21-covf7v291nsg009bc6hg
         key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Pull latest Docker image
