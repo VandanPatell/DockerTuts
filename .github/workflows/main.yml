@@ -55,7 +55,7 @@ jobs:
         # key_path: /root/ssh.pub
 
     - name: Pull latest Docker image
-      run: ssh root@node1 'docker pull vandanpatell/docker_test:latest'
+      run: ssh root@192.168.0.1 'docker pull vandanpatell/docker_test:latest'
 
     - name: Restart Docker container
-      run: ssh root@node1 'docker restart nodecontainer'
+      run: ssh root@192.168.0.1 'docker restart nodecontainer'
