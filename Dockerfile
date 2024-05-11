@@ -18,6 +18,4 @@ EXPOSE 3000
 # CMD ["node","app.js"]
 
 # Command to clone repository, update code, and run the application
-CMD git clone -b Node-JS https://github.com/VandanPatell/DockerTuts.git . && \
-    npm install && \
-    node app.js
+CMD node app.js

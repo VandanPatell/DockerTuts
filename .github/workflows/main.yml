@@ -28,5 +28,22 @@ jobs:
           image: 
           context: .
           push: true
-          tags: vandanpatell/docker_test:lates
+          tags: vandanpatell/docker_test:latest
 
+  deploy:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: SSH into server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ip172-18-0-21-covf7v291nsg009bc6hg
+        username: direct.labs.play-with-docker.com
+
+    - name: Pull latest Docker image
+      run: ssh ip172-18-0-21-covf7v291nsg009bc6hg@direct.labs.play-with-docker.com 'docker pull vandanpatell/docker_test:latest'
+
+    - name: Restart Docker container
+      run: ssh ip172-18-0-21-covf7v291nsg009bc6hg@direct.labs.play-with-docker.com 'docker restart nodecontainer'
