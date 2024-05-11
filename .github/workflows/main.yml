@@ -41,7 +41,8 @@ jobs:
       with:
         host: direct.labs.play-with-docker.com
         username: ip172-18-0-21-covf7v291nsg009bc6hg
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: TEST
+        # key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Pull latest Docker image
       run: ssh ip172-18-0-21-covf7v291nsg009bc6hg@direct.labs.play-with-docker.com 'docker pull vandanpatell/docker_test:latest'
