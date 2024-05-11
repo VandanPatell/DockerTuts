@@ -51,14 +51,10 @@ jobs:
         ssh-keyscan -H direct.labs.play-with-docker.com >> ~/.ssh/known_hosts
         chmod 644 ~/.ssh/known_hosts
 
-    - name: SSH into server
-      uses: appleboy/ssh-action@master
+    - name: Setup SSH Agent
+      uses: webfactory/ssh-agent@v0.5.0
       with:
-        host: direct.labs.play-with-docker.com
-        username: ip172-18-0-29-covmlbol2o90008hp7sg
-        password: TEST
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        # key_path: /root/ssh.pub
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Pull latest Docker image
       run: ssh ip172-18-0-29-covmlbol2o90008hp7sg@direct.labs.play-with-docker.com 'docker pull vandanpatell/docker_test:latest'
