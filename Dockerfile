@@ -9,7 +9,7 @@ RUN if [ "$NODE_ENV" = "development" ]; \
         else npm install --only=production; \
         fi
 
-COPY . ./
+COPY ./DockerTuts ./
 ENV PORT 3000
 EXPOSE $PORT
 CMD ["node", "index.js"]
