@@ -5,13 +5,12 @@ services:
       - "3000:80"
   node-app:
     deploy:
-      replicas: 4
+      replicas: 1
       restart_policy:
         condition: any
       update_config:
         parallelism: 2
         delay: 15s
-
     build:
       context: .
       args:
