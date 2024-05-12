@@ -1,21 +1,15 @@
-FROM node:14
+FROM node:15
+WORKDIR /app
+COPY package.json .
 
-# Install git
-RUN apt-get update && apt-get install -y git
-WORKDIR /usr/src/app
-
-# Remove any existing code
-RUN rm -rf *
-
-# Clone the remote Git repository
-RUN git clone -b Node-JS https://github.com/VandanPatell/DockerTuts.git
-
-# Copy package.json separately to leverage Docker cache if unchanged
-COPY package*.json app.js ./
-
+ARG NODE_ENV
 RUN npm install
-EXPOSE 3000
-# CMD ["node","app.js"]
+# RUN if [ "$NODE_ENV" = "development" ]; \
+#         then npm install; \
+#         else npm install --only=production; \
+#         fi
 
-# Command to clone repository, update code, and run the application
-CMD node app.js
+COPY . ./
+ENV PORT 3000
+EXPOSE $PORT
+CMD ["node", "index.js"]
