@@ -24,7 +24,7 @@ docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml up -d
 docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml down -v
 
 ########### DOCKER SWARM ###########
-docker swarm init --advertise-addr 192.168.0.18
+docker swarm init --advertise-addr 172.18.0.32
 docker stack deploy -c ./docker-compose.yml -c docker-compose-dev.yml mynodeapp
 docker service ls
 docker node ls
