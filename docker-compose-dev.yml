@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 services:
   nginx:
     ports:
@@ -11,13 +11,6 @@ services:
       update_config:
         parallelism: 2
         delay: 15s
-    
-    watch:
-      - path: ./package.json
-        action: rebuild
-      - path: .
-        target: /app
-        action: sync
 
     build:
       context: .
