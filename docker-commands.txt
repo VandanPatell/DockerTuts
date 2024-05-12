@@ -1,0 +1,32 @@
+SOME USEFULL DOCKER COMMANDS USED IN THIS BRANCH.
+
+########### DOCKER BUILD IMAGE ###########
+docker build -t nodeimg .
+
+########### DOCKER RUN CONTAINER ###########
+docker run -d -p 3000:3000 --name nodecontainer nodeimg:latest
+
+########### DOCKER LIST ALL CONTAINERS ###########
+docker container ls -a
+
+########### DOCKER EXECUTE CONTAINER ###########
+docker exec -it dockertuts-node-app-1 bash
+docker exec -it dockertuts-nginx-1 bash
+
+
+########### DOCKER CONTAINER LOGS ###########
+docker logs -f dockertuts-nginx-1
+
+
+########### DOCKER COMPOSE ###########
+docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml up -d --build
+docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml up -d
+docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml down -v
+
+########### DOCKER SWARM ###########
+docker swarm init --advertise-addr 192.168.0.18
+docker stack deploy -c ./docker-compose.yml -c docker-compose-dev.yml mynodeapp
+docker service ls
+docker node ls
+docker stack ls
+docker stack services mynodeapp
