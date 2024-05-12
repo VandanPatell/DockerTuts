@@ -11,6 +11,14 @@ services:
       update_config:
         parallelism: 2
         delay: 15s
+    
+    watch:
+      - path: ./package.json
+        action: rebuild
+      - path: .
+        target: /app
+        action: sync
+
     build:
       context: .
       args:
