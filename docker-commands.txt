@@ -19,6 +19,7 @@ docker logs -f dockertuts-nginx-1
 
 
 ########### DOCKER COMPOSE ###########
+docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml build
 docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml up -d --build
 docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml up -d
 docker-compose -f ./docker-compose.yml -f docker-compose-dev.yml down -v
