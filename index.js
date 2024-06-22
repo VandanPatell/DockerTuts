@@ -7,7 +7,11 @@ const app = express()
 app.use(bodyParser.json())
 app.use(routes)
 
+const port = process.env.PORT || 3000;
+
 init().then(() => {
-  console.log('starting server on port 3000')
-  app.listen(3000)
+  console.log('======> DB initialized');
 })
+
+app.get('/', (req,res) => res.send('Hello World from dockers... Updated Version v3.0'));
+app.listen(port, () => console.log(`========> Server listening on port ${port}`))
