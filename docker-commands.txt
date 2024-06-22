@@ -31,3 +31,9 @@ docker service ls
 docker node ls
 docker stack ls
 docker stack services mynodeapp
+
+
+################ Linux commands ###############
+export testVar=ENV_VARIABLE
+printenv 
+unset testVar
