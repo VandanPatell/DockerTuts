@@ -1,14 +1,18 @@
 const { MongoClient, ObjectId } = require('mongodb')
 
-const connectionUrl = `mongodb://${process.env.MONGO_IP || "mongo"}:27017`
+const connectionUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_IP || "mongo"}:27017`
 const dbName = 'MERN_TEST'
 
 let db
 
 const init = () =>
-  MongoClient.connect(connectionUrl, { useNewUrlParser: true }).then((client) => {
-    db = client.db(dbName)
-  })
+  MongoClient.connect(connectionUrl,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }).then((client) => {
+      db = client.db(dbName)
+    })
 
 const insertItem = (item) => {
   const collection = db.collection('items')
