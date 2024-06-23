@@ -9,6 +9,10 @@ const itemSchema = Joi.object().keys({
   quantity: Joi.number().integer().min(0)
 })
 
+router.get('/', (req,res) => {
+  res.send('Hello World from dockers... Updated Version v3.0');
+})
+
 router.post('/item', (req, res) => {
   const item = req.body
   console.log(req.body)
