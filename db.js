@@ -1,8 +1,8 @@
 const { MongoClient, ObjectId } = require('mongodb')
 
-const connectionUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_IP || "mongo"}:27017`
+const connectionUrl = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@mongo:27017`
 const dbName = 'MERN_TEST'
-
+console.log(`Mongo Connection URL ======> ${connectionUrl}`);
 let db
 
 const init = () =>
