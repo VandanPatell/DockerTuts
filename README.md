@@ -1,4 +1,4 @@
-# Node Express Mongo Example
+# Node Express Mongo NGINX Example With Docker
 
 This is a sample application demonstrating the docker project.
 
