@@ -60,4 +60,10 @@ router.put('/item/:id/quantity/:quantity', (req, res) => {
     })
 })
 
+router.get('/breakServer', (req, res) => {
+    while(true){
+      // Eat 5 star do nothing.
+    }
+})
+
 module.exports = router
